@@ -8,8 +8,8 @@ const Loadable = (Component: React.FC) => (props: JSX.IntrinsicAttributes) => (
     </Suspense>
 )
 
-const InvestorDashboardPage = lazy(() => import('./pages/InvestorDashboardPage'));
-const InvestorDetailsPage = lazy(() => import('./pages/InvestorDetailsPage'));
+const InvestorDashboardPage = Loadable(lazy(() => import('./pages/InvestorDashboardPage')));
+const InvestorDetailsPage = Loadable(lazy(() => import('./pages/InvestorDetailsPage')));
 
 const routes: RouteObject[] = [
     {
