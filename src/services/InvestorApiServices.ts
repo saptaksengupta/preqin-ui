@@ -11,7 +11,7 @@ class InvestorApiService {
     }
 
     private static getInvestorCommitmentApiUrl = (investorId: string, assetClass: string) => {
-        const path = 'investor/commitment/';
+        const path = 'investor/commitment';
         return `${this.BASE_URL}/${this.API_PREFIX}/${path}/${assetClass}/${investorId}`;
     }
 
@@ -21,10 +21,10 @@ class InvestorApiService {
             .then(InvestorApiService.transformInvestors);
     }
 
-    public static fetchInvestorDetails(investorId: number, assetClass: string): Promise<IInvestor> {
+    public static fetchInvestorCommitmentDetails(investorId: number, assetClass: string): Promise<IInvestorCommitment> {
         return fetch(InvestorApiService.getInvestorCommitmentApiUrl(investorId.toString(), assetClass))
             .then(resp => resp.json())
-            .then()
+            .then(InvestorApiService.getCastedInvestorCommitment)
     }
 
     private static transformInvestors(data: Array<any>) {
@@ -48,7 +48,7 @@ class InvestorApiService {
         return investor
     }
 
-    private static getCastedInvestorCommitment(data: any) {
+    private static getCastedInvestorCommitment(data: any): IInvestorCommitment {
         const investorCommitment: IInvestorCommitment = {
             firmId: data.firm_id,
             id: data.id,
