@@ -11,7 +11,8 @@ const InvestorDetailsPage: React.FC = () => {
   const { investorId } = useParams();
   const [assetClass, setAssetClass] = useState(ASSET_CLASS_MAP['pe']['type']);
   const [investorCommitment, setInvestorCommitment] = useState<IInvestorCommitment[]>();
-
+  const location = useLocation();
+  const {state} = location;
 
   const onAssetChange = (e: any) => {
     const value = e.target.value;
@@ -29,7 +30,7 @@ const InvestorDetailsPage: React.FC = () => {
 
   return (
     <div>
-      <div className='commitment-page-heading'>Investor Commintments </div>
+      <div className='commitment-page-heading'><span>{state.firmName}</span>'s Commitments</div>
       <div className='commitment-type-selctor'>
         <select onChange={onAssetChange} value={assetClass}>
           <option value={ASSET_CLASS_MAP['pe']['type']}>{ASSET_CLASS_MAP['pe']['label']}</option>

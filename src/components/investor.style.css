@@ -10,6 +10,8 @@
     padding: 1em;
     border-radius: 2px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    min-width: 450px;
+    cursor: pointer;
 }
 
 .investor-address {
@@ -19,7 +21,7 @@
 
 .commitment-info-card {
     padding: 0;
-    min-width: 350px;
+    min-width: 320px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,9 +29,9 @@
 
 .asset-class {
     flex: 1; 
-    padding-left: 1em;
+    padding: 0 0.5em;
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .commitment-amount {
