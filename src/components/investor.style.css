@@ -1,11 +1,11 @@
-.investor-table-container {
+.investor-table-container, .commitment-container {
     padding: 1em;
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
 }
 
-.investor-card {
+.investor-card, .commitment-info-card {
     /* border: 1px solid rgb(243, 230, 230); */
     padding: 1em;
     border-radius: 2px;
@@ -14,4 +14,46 @@
 
 .investor-address {
     color: rgb(138, 132, 132);
+}
+
+
+.commitment-info-card {
+    padding: 0;
+    min-width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.asset-class {
+    flex: 1; 
+    padding-left: 1em;
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+.commitment-amount {
+    display: flex;
+}
+
+.amount {
+    font-weight: bold;
+    color: rgb(12, 56, 82);
+    font-size: 2em;
+}
+
+.currency-symbol {
+    font-size: 0.6em;
+    color: rgb(153, 242, 202);
+    font-weight: 300;
+    margin-left: 2px;
+}
+.commitment-amount-cont {
+    background-color: rgb(241, 114, 135);
+    height: 6em;
+    width: 6em;
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

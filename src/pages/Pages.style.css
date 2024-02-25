@@ -1,0 +1,20 @@
+.commitment-page-heading {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.commitment-type-selctor {
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
+
+.commitment-type-selctor select {
+    height: 30px;
+    border: none;
+    border: 1px solid rgb(236, 224, 224);
+    width: 200px;
+    text-align: center;
+}

@@ -1,5 +1,6 @@
 import { IInvestor } from "../types/Investor";
 import { IInvestorCommitment } from "../types/InvestorCommitment";
+import { CastingFunction } from "../types/Common";
 
 class InvestorApiService {
     private static readonly BASE_URL = 'http://localhost:8000';
@@ -18,26 +19,26 @@ class InvestorApiService {
     public static fetchInvestors(): Promise<IInvestor[]> {
         return fetch(InvestorApiService.getInvestorsApiUrl())
             .then(resp => resp.json())
-            .then(InvestorApiService.transformInvestors);
+            .then((data) => InvestorApiService.transformArrAndCast<IInvestor>(data, InvestorApiService.getCastedInvestor));
     }
 
-    public static fetchInvestorCommitmentDetails(investorId: number, assetClass: string): Promise<IInvestorCommitment> {
+    public static fetchInvestorCommitmentDetails(investorId: number, assetClass: string): Promise<IInvestorCommitment[]> {
         return fetch(InvestorApiService.getInvestorCommitmentApiUrl(investorId.toString(), assetClass))
             .then(resp => resp.json())
-            .then(InvestorApiService.getCastedInvestorCommitment)
+            .then(data => InvestorApiService.transformArrAndCast<IInvestorCommitment>(data, InvestorApiService.getCastedInvestorCommitment));
     }
 
-    private static transformInvestors(data: Array<any>) {
-        const investors: IInvestor[] = [];
+    private static transformArrAndCast<T>(data: Array<any>, castingFn: CastingFunction): Array<T> {
+        const resultArr: Array<T> = [];
         if (data && data.length > 0) {
             for (let i = 0; i < data.length; i++) {
-                investors.push(InvestorApiService.getCastedInvestor(data[i]));
+                resultArr.push(castingFn(data[i]) as T);
             }
         }
-        return investors;
+        return resultArr;
     }
 
-    private static getCastedInvestor(data: any) {
+    private static getCastedInvestor(data: any): IInvestor {
         const investor: IInvestor = {
             firmId: data.firm_id,
             firmName: data.firm_name,

@@ -25,7 +25,7 @@ const InvestorTable = () => {
     }   
 
     const getInvestorJsx = (investor: IInvestor) => (
-        <div className='investor-card' onClick={() => onInvestorClicked(investor.firmId.toString())}>
+        <div key={investor.firmId} className='investor-card' onClick={() => onInvestorClicked(investor.firmId.toString())}>
             <h3>{investor.firmName}</h3>
             <div className='investor-address'>{investor.address}</div>
             <div>Asset Type: <b>{investor.type}</b></div>
