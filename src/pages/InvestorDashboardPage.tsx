@@ -1,10 +1,11 @@
 import React from 'react'
+import Header from '../components/Header';
 import InvestorTable from '../components/InvestorTable';
 
 const InvestorDashboardPage: React.FC = () => {
   return (
     <div>
-      <h1>Our Investors</h1>
+      <Header heading='Our Investors' />
       <div>
         <InvestorTable />
       </div>

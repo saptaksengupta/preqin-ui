@@ -4,6 +4,7 @@ import InvestorCommitmentInfo from '../components/InvestorCommitmentInfo';
 import InvestorApiService from '../services/InvestorApiServices';
 import { IInvestorCommitment } from '../types/InvestorCommitment';
 import { ASSET_CLASS_MAP } from '../utils/Constants';
+import Header from '../components/Header';
 import "./Pages.style.css"
 
 
@@ -30,7 +31,7 @@ const InvestorDetailsPage: React.FC = () => {
 
   return (
     <div>
-      <div className='commitment-page-heading'><span>{state.firmName}</span>'s Commitments</div>
+      <Header heading={state.firmName + "'s Commitments"} />
       <div className='commitment-type-selctor'>
         <select onChange={onAssetChange} value={assetClass}>
           <option value={ASSET_CLASS_MAP['pe']['type']}>{ASSET_CLASS_MAP['pe']['label']}</option>
