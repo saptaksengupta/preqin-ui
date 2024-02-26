@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import InvestorApiService from '../services/InvestorApiServices';
 import { IInvestor } from '../types/Investor';
+import { formatDate } from "../utils/utility";
+
 import "./investor.style.css";
 
 const InvestorTable = () => {
@@ -29,6 +31,7 @@ const InvestorTable = () => {
             <h3>{investor.firmName}</h3>
             <div className='investor-address'>{investor.address}</div>
             <div>Asset Type: <b>{investor.type}</b></div>
+            <div className='investor-date'>{formatDate(investor.dateAdded)}</div>
         </div>
     )
 

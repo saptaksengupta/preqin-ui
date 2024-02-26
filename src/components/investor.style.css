@@ -18,6 +18,12 @@
     color: rgb(138, 132, 132);
 }
 
+.investor-date {
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(171, 140, 140);
+}
+
 
 .commitment-info-card {
     padding: 0;
