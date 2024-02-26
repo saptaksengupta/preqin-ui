@@ -6,6 +6,7 @@ A sample app built with simple react, ts, webpack configurations.
 Go to root folder and then do: it will run out application on port  http://localhost:8080/ 
 ```
 npm i 
+npm start
 ```
 
 Assuming backend is up and running by using the exiting docker Image, if not you need to install backend first to see frontend in action.
