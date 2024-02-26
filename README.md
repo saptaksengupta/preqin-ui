@@ -1,5 +1,5 @@
 # preqin-ui
-A sample app built with simple react, ts, webpack configurations. 
+A sample app built with simple react, ts, babel, webpack configurations. No pre defined tools like CRA etc is used.
 
 # Quick Start
 
